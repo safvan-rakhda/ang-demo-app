@@ -2,3 +2,27 @@
 
 See here <div *ngIf="isVisible">Some text</div>
 <button (click)="toggleisVisible()">Change visiblity</button>
+
+<h1>2. *ngFor</h1>
+<ul>
+    <li *ngFor="let item of dummyArray | slice : 2:6; index as i; even as e; odd as o;" [ngClass]="o ? 'red' : 'green'">
+        index: {{i}} || item: {{item | uppercase}} || Even/Odd: {{e ? 'Even': 'Odd'}}</li>
+</ul>
+
+<h1> 3. *ngSwith</h1>
+
+<div class="box-container" [ngSwitch]="selectedValue">
+    <select (change)="onDropdownSelectionChange($event.target)">
+        <option value="" selected>Select the role</option>
+        <option *ngFor="let item of dropDownValues" [value]="item.key">{{item.value}}</option>
+    </select>
+
+    <div class="box" *ngSwitchCase="1">Box 1</div>
+    <div class="box" *ngSwitchCase="2">Box 2</div>
+    <div *ngSwitchCase="3" class="box combined">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+    </div>
+    <div class="box" *ngSwitchDefault>No box selected</div>
+
+</div>
