@@ -1,0 +1,4 @@
+<p *ngIf="selectedPerson">Current person: {{ selectedPerson | json}}</p>
+
+<demo-app-person-list [people]="personList" (personSelected)="setCurrentPerson($event)">
+</demo-app-person-list>

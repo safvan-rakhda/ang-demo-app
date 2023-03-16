@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of people">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.gender }}</td>
+            <td>{{ person.occupation }}</td>
+            <td>{{ person.location }}</td>
+            <td><button (click)="selectPersonFromChild(person)">Click Me</button></td>
+        </tr>
+    </tbody>
+</table>
