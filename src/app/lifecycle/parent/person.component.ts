@@ -1,11 +1,19 @@
-import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  AfterViewInit,
+  Self,
+} from '@angular/core';
 import { HeaderComponent } from 'src/app/header/header.component';
 import { Person } from '../Model/Types';
+import { PersonService } from './services/person.service';
 
 @Component({
   selector: 'demo-app-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss'],
+  providers: [PersonService],
 })
 export class PersonComponent implements OnInit, AfterViewInit {
   personList: Person[] = [];
@@ -13,44 +21,8 @@ export class PersonComponent implements OnInit, AfterViewInit {
   @ViewChild(HeaderComponent)
   headerComp!: HeaderComponent;
 
-  constructor() {
-    this.personList = [
-      {
-        name: 'John Smith',
-        age: 32,
-        gender: 'male',
-        occupation: 'software engineer',
-        location: 'San Francisco, CA',
-      },
-      {
-        name: 'Emily Johnson',
-        age: 28,
-        gender: 'female',
-        occupation: 'marketing manager',
-        location: 'New York, NY',
-      },
-      {
-        name: 'David Lee',
-        age: 40,
-        gender: 'male',
-        occupation: 'entrepreneur',
-        location: 'Los Angeles, CA',
-      },
-      {
-        name: 'Sophia Kim',
-        age: 25,
-        gender: 'female',
-        occupation: 'graphic designer',
-        location: 'Chicago, IL',
-      },
-      {
-        name: 'Michael Davis',
-        age: 50,
-        gender: 'male',
-        occupation: 'lawyer',
-        location: 'Washington D.C.',
-      },
-    ];
+  constructor(@Self() private personService: PersonService) {
+    this.personList = personService.getPersonList();
   }
 
   ngOnInit(): void {
