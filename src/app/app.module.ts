@@ -9,6 +9,7 @@ import { PersonListComponent } from './lifecycle/parent/person-list/person-list.
 import { HeaderComponent } from './header/header.component';
 import { ParentComponent } from './viewContainer/parent/parent.component';
 import { MY_TOKEN } from './injectiontoken/demo.token';
+import { RxjsdemoComponent } from './rxjsdemo/rxjsdemo.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MY_TOKEN } from './injectiontoken/demo.token';
     PersonListComponent,
     HeaderComponent,
     ParentComponent,
+    RxjsdemoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [{ provide: MY_TOKEN, useValue: 'My test vakue for token' }],
