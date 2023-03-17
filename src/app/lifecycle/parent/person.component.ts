@@ -4,8 +4,10 @@ import {
   OnInit,
   AfterViewInit,
   Self,
+  Inject,
 } from '@angular/core';
-import { HeaderComponent } from 'src/app/header/header.component';
+import { HeaderComponent } from '../../header/header.component';
+import { MY_TOKEN } from '../../injectiontoken/demo.token';
 import { Person } from '../Model/Types';
 import { PersonService } from './services/person.service';
 
@@ -16,13 +18,18 @@ import { PersonService } from './services/person.service';
   providers: [PersonService],
 })
 export class PersonComponent implements OnInit, AfterViewInit {
+  tokenValue: string = '';
   personList: Person[] = [];
   selectedPerson: Person | undefined;
   @ViewChild(HeaderComponent)
   headerComp!: HeaderComponent;
 
-  constructor(@Self() private personService: PersonService) {
+  constructor(
+    @Self() private personService: PersonService,
+    @Inject(MY_TOKEN) private myTokenValue: string
+  ) {
     this.personList = personService.getPersonList();
+    this.tokenValue = myTokenValue;
   }
 
   ngOnInit(): void {
