@@ -1,4 +1,11 @@
-<p *ngIf="selectedPerson">Current person: {{ selectedPerson | json}}</p>
+<demo-app-header></demo-app-header>
+
+<div style="height: 18px;">
+    <p *ngIf="selectedPerson">Current person: {{ selectedPerson | json}}</p>
+</div>
 
 <demo-app-person-list [people]="personList" (personSelected)="setCurrentPerson($event)">
 </demo-app-person-list>
+
+<button (click)="clearSelection()">Clear</button>
+<button (click)="addPerson()">Add Person</button>

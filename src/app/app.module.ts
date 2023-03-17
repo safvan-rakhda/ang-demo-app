@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DirectivesDemoComponent } from './directives/directives-demo/directives-demo.component';
 import { PersonComponent } from './lifecycle/parent/person.component';
 import { PersonListComponent } from './lifecycle/parent/person-list/person-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PersonListComponent } from './lifecycle/parent/person-list/person-list.
     DirectivesDemoComponent,
     PersonComponent,
     PersonListComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

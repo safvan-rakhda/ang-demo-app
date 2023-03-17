@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { HeaderComponent } from 'src/app/header/header.component';
 import { Person } from '../Model/Types';
 
 @Component({
@@ -6,9 +7,12 @@ import { Person } from '../Model/Types';
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss'],
 })
-export class PersonComponent {
+export class PersonComponent implements OnInit, AfterViewInit {
   personList: Person[] = [];
   selectedPerson: Person | undefined;
+  @ViewChild(HeaderComponent)
+  headerComp!: HeaderComponent;
+
   constructor() {
     this.personList = [
       {
@@ -49,7 +53,33 @@ export class PersonComponent {
     ];
   }
 
+  ngOnInit(): void {
+    console.log('ngOnInit: ' + this.headerComp);
+    //Child componenet is no accessible here.
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit: ' + this.headerComp);
+    this.headerComp.headerText = 'New header text';
+  }
+
   setCurrentPerson(person: Person) {
     this.selectedPerson = person;
+  }
+
+  clearSelection(): void {
+    this.selectedPerson = undefined;
+  }
+
+  addPerson() {
+    const person: Person = {
+      name: 'John Doe',
+      age: 35,
+      gender: 'male',
+      occupation: 'test engineer',
+      location: 'San Francisco, CA',
+    };
+    this.personList.push(person);
+    //this.personList = [...this.personList, person];
   }
 }
