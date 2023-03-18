@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { ParentComponent } from './viewContainer/parent/parent.component';
 import { MY_TOKEN } from './injectiontoken/demo.token';
 import { RxjsdemoComponent } from './rxjsdemo/rxjsdemo.component';
+import { HttpclientdemoComponent } from './httpclientdemo/httpclientdemo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,9 @@ import { RxjsdemoComponent } from './rxjsdemo/rxjsdemo.component';
     HeaderComponent,
     ParentComponent,
     RxjsdemoComponent,
+    HttpclientdemoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [{ provide: MY_TOKEN, useValue: 'My test vakue for token' }],
   bootstrap: [AppComponent],
 })

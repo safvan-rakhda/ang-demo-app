@@ -5,3 +5,11 @@ export interface Person {
   occupation: string;
   location: string;
 }
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone: number;
+}

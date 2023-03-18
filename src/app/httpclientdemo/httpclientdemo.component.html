@@ -1,0 +1,25 @@
+<p>httpclientdemo works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>E-mail</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td><button (click)="updateUsername(user)">Update</button></td>
+            <td><button (click)="deleteUser(user)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
