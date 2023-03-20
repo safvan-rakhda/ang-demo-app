@@ -6,6 +6,7 @@
             <th>Username</th>
             <th>E-mail</th>
             <th>Phone</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
+            <td><button [routerLink]="['/httpdemo/user/', user.id]">Details</button></td>
         </tr>
     </tbody>
 </table>

@@ -21,6 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NotfountdemoComponent } from './notfountdemo/notfountdemo.component';
+import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +35,21 @@ import { MatListModule } from '@angular/material/list';
     RxjsdemoComponent,
     HttpclientdemoComponent,
     AppNavDemoComponent,
+    NotfountdemoComponent,
+    UserdetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+  ],
   providers: [
     {
       provide: MY_TOKEN,
