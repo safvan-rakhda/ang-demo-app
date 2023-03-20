@@ -13,6 +13,14 @@ import { RxjsdemoComponent } from './rxjsdemo/rxjsdemo.component';
 import { HttpclientdemoComponent } from './httpclientdemo/httpclientdemo.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpReqInterceptorInterceptor } from './interceptors/http-req-interceptor.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppNavDemoComponent } from './app-nav-demo/app-nav-demo.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -24,8 +32,9 @@ import { HttpReqInterceptorInterceptor } from './interceptors/http-req-intercept
     ParentComponent,
     RxjsdemoComponent,
     HttpclientdemoComponent,
+    AppNavDemoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule],
   providers: [
     {
       provide: MY_TOKEN,
