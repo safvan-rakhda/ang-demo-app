@@ -11,7 +11,8 @@ import { ParentComponent } from './viewContainer/parent/parent.component';
 import { MY_TOKEN } from './injectiontoken/demo.token';
 import { RxjsdemoComponent } from './rxjsdemo/rxjsdemo.component';
 import { HttpclientdemoComponent } from './httpclientdemo/httpclientdemo.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpReqInterceptorInterceptor } from './interceptors/http-req-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,17 @@ import { HttpClientModule } from '@angular/common/http';
     HttpclientdemoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [{ provide: MY_TOKEN, useValue: 'My test vakue for token' }],
+  providers: [
+    {
+      provide: MY_TOKEN,
+      useValue: 'My test vakue for token',
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpReqInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
