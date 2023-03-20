@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { catchError } from 'rxjs';
 import { User } from '../lifecycle/Model/Types';
 import { UserapiService } from './services/userapi.service';
 
@@ -9,31 +10,39 @@ import { UserapiService } from './services/userapi.service';
 })
 export class HttpclientdemoComponent {
   users: User[] = [];
+  users$ = this.userService.getUsers$.pipe(
+    catchError((er) => {
+      console.log(er);
+      return [];
+    })
+  );
 
   constructor(private userService: UserapiService) {
-    this.getUsers();
+    //this.getUsers();
   }
 
-  getUsers() {
-    this.userService.getUsers$.subscribe(
-      (data) => {
-        this.users = data;
-      },
-      (err: Error) => {}
-    );
-  }
+  // We have used async pipe to feed data to table in componenet
+  // getUsers() {
+  //   this.userService.getUsers$.subscribe(
+  //     (data) => {
+  //       this.users = data;
+  //     },
+  //     (err: Error) => {}
+  //   );
+  // }
 
   deleteUser(user: User) {
     this.userService.deleteUser(user.id).subscribe(
       (data) => {
         console.log(data);
-        this.getUsers();
+        //this.getUsers();
       },
       (err: Error) => {}
     );
   }
 
   updateUsername(user: User) {
+    debugger;
     this.users = this.users.filter((u) => u.id != user.id);
     this.userService
       .updateUsername(user.id, this.getUsernameToUpdate(user.username))
