@@ -15,7 +15,7 @@ export class HttpclientdemoComponent {
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe(
+    this.userService.getUsers$.subscribe(
       (data) => {
         this.users = data;
       },
