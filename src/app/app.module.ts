@@ -25,7 +25,8 @@ import { NotfountdemoComponent } from './notfountdemo/notfountdemo.component';
 import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
 import { FormdemoComponent } from './formdemo/formdemo.component';
 import { FormsModule } from '@angular/forms';
-import { DemohoverDirective } from './directives/directives-demo/custom/demohover.directive';
+import { DemohoverDirective } from './directives/custom/demohover.directive';
+import { LogindemoComponent } from './logindemo/logindemo.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DemohoverDirective } from './directives/directives-demo/custom/demohove
     UserdetailsComponent,
     FormdemoComponent,
     DemohoverDirective,
+    LogindemoComponent,
   ],
   imports: [
     BrowserModule,
