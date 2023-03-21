@@ -23,6 +23,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotfountdemoComponent } from './notfountdemo/notfountdemo.component';
 import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
+import { FormdemoComponent } from './formdemo/formdemo.component';
+import { FormsModule } from '@angular/forms';
+import { DemohoverDirective } from './directives/directives-demo/custom/demohover.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.c
     AppNavDemoComponent,
     NotfountdemoComponent,
     UserdetailsComponent,
+    FormdemoComponent,
+    DemohoverDirective,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,7 @@ import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.c
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    FormsModule,
   ],
   providers: [
     {

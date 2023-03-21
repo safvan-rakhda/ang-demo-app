@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DirectivesDemoComponent } from './directives/directives-demo/directives-demo.component';
+import { FormdemoComponent } from './formdemo/formdemo.component';
 import { HttpclientdemoComponent } from './httpclientdemo/httpclientdemo.component';
 import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
 import { PersonComponent } from './lifecycle/parent/person.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'httpdemo/user/:id', component: UserdetailsComponent },
   { path: 'viewcontainerdemo', component: ParentComponent },
   { path: 'componenetCommunicationdemo', component: PersonComponent },
+  { path: 'formdemo', component: FormdemoComponent },
   { path: '**', component: NotfountdemoComponent },
 ];
 
