@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DirectivesDemoComponent } from './directives/directives-demo/directives-demo.component';
 import { FormdemoComponent } from './formdemo/formdemo.component';
 import { LoginGuard } from './gaurds/login.guard';
+import { UserdetailGuard } from './httpclientdemo/gaurd/userdetail.guard';
 import { HttpclientdemoComponent } from './httpclientdemo/httpclientdemo.component';
 import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
 import { PersonComponent } from './lifecycle/parent/person.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
     path: 'httpdemo/user/:id',
     component: UserdetailsComponent,
     canActivate: [LoginGuard],
+    canDeactivate: [UserdetailGuard],
   },
   {
     path: 'viewcontainerdemo',

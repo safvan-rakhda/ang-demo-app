@@ -25,4 +25,8 @@ export class UserapiService {
   updateUsername(id: number, username: string) {
     return this.http.patch<User>(this.apiBaseUrl + id, { username: username });
   }
+
+  getUserById(id: number) {
+    return this.http.get(this.apiBaseUrl + '?id=' + id);
+  }
 }
