@@ -24,9 +24,17 @@ import { MatListModule } from '@angular/material/list';
 import { NotfountdemoComponent } from './notfountdemo/notfountdemo.component';
 import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.component';
 import { FormdemoComponent } from './formdemo/formdemo.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemohoverDirective } from './directives/custom/demohover.directive';
 import { LogindemoComponent } from './logindemo/logindemo.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -44,6 +52,7 @@ import { LogindemoComponent } from './logindemo/logindemo.component';
     FormdemoComponent,
     DemohoverDirective,
     LogindemoComponent,
+    ReactiveformComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +66,14 @@ import { LogindemoComponent } from './logindemo/logindemo.component';
     MatIconModule,
     MatListModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatCheckboxModule,
   ],
   providers: [
     {

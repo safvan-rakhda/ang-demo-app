@@ -1,0 +1,73 @@
+{{ testForm.get('firstName')?.errors | json }}
+
+<form [formGroup]="testForm" class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Enter First Name" formControlName="firstName" />
+        <mat-error *ngIf="testForm.get('firstName')?.errors?.['required']"> FirstName is required. </mat-error>
+        <mat-error
+            *ngIf="testForm.get('firstName')?.errors?.['minlength'] || testForm.get('firstName')?.errors?.['maxlength']">
+            FirstName length should be more than 5 and less than 20.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Enter date of birth." formControlName="dob" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="testForm.get('dob')?.errors?.['required']"> Date of Birth is required. </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="non-binary">Non-binary</mat-option>
+        </mat-select>
+        <mat-error> Gender is required. </mat-error>
+    </mat-form-field>
+    <span appearance="fill" class="example-full-width">
+        <mat-checkbox class="example-margin" (change)="showHideAddres($event.checked)" formControlName="haveAddress">Add
+            address</mat-checkbox>
+    </span>
+    <div formGroupName="address" *ngIf="testForm.get('address')">
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address Line 1</mat-label>
+                    <input matInput placeholder="Enter address line 1." formControlName="addressLine1" required />
+                    <mat-error> Enter address line. </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>City/Village</mat-label>
+                    <input matInput placeholder="Enter City/Village." formControlName="city" required />
+                    <mat-error> Enter city or village name. </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="Enter State." formControlName="state" required />
+                    <mat-error> Enter state name. </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Country</mat-label>
+                    <input matInput placeholder="Enter Country." formControlName="country" required />
+                    <mat-error> Enter country name. </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>ZipCode</mat-label>
+                    <input matInput placeholder="Enter ZipCode." formControlName="zipCode" type="number" required />
+                    <mat-error> Enter zipCode. </mat-error>
+                </mat-form-field>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div>
+        <button mat-raised-button [disabled]="testForm.invalid" color="primary" type="submit">Submit</button>
+    </div>
+</form>

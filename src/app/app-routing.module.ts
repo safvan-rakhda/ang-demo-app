@@ -8,6 +8,7 @@ import { UserdetailsComponent } from './httpclientdemo/userdetails/userdetails.c
 import { PersonComponent } from './lifecycle/parent/person.component';
 import { LogindemoComponent } from './logindemo/logindemo.component';
 import { NotfountdemoComponent } from './notfountdemo/notfountdemo.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { ParentComponent } from './viewContainer/parent/parent.component';
 
 const routes: Routes = [
@@ -39,6 +40,11 @@ const routes: Routes = [
     canActivate: [LoginGuard],
   },
   { path: 'formdemo', component: FormdemoComponent, canActivate: [LoginGuard] },
+  {
+    path: 'reactiveFormdemo',
+    component: ReactiveformComponent,
+    canActivate: [LoginGuard],
+  },
   { path: '**', component: NotfountdemoComponent },
 ];
 
