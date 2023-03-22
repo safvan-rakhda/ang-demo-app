@@ -25,6 +25,8 @@
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="testForm.get('dob')?.errors?.['required']"> Date of Birth is required.
         </mat-error>
+        <mat-error *ngIf="testForm.get('dob')?.errors?.['invalidDoB']"> Date of Birth cannot be greater than today.
+        </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Gender</mat-label>

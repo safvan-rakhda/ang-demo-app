@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { CustomValidator } from './validators/custom-validator';
 
 @Component({
   selector: 'demo-app-reactiveform',
@@ -36,13 +37,15 @@ export class ReactiveformComponent implements OnInit {
         Validators.maxLength(20),
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      dob: new FormControl('', [Validators.required]),
+      dob: new FormControl('', [
+        Validators.required,
+        CustomValidator.validateDoB,
+      ]),
       gender: [],
       haveAddress: [],
     });
 
     this.testForm.get('haveAddress')?.valueChanges.subscribe((checked) => {
-      console.log('changd');
       if (checked) {
         this.testForm.addControl('address', this.addressFormControlGroup);
       } else if (this.testForm.get('address')) {
