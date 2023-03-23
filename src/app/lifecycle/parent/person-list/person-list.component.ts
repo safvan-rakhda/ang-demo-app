@@ -7,7 +7,8 @@ import { Person } from '../../Model/Types';
   styleUrls: ['./person-list.component.scss'],
 })
 export class PersonListComponent {
-  @Input() people: Person[] | undefined;
+  @Input() people!: Person[];
+  @Input() age = 0;
 
   @Output() personSelected = new EventEmitter<Person>();
 

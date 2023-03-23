@@ -1,10 +1,14 @@
 <demo-app-header></demo-app-header>
+<div>
+    <input type="number" placeholder="Enter age to filter." [formControl]="ageFilter">
+</div>
 
 <div style="height: 18px;">
     <p *ngIf="selectedPerson">Current person: {{ selectedPerson | json}}</p>
 </div>
 
-<demo-app-person-list [people]="personList" (personSelected)="setCurrentPerson($event)">
+<demo-app-person-list [people]="personList" [age]="(ageFilter.value !== null) ? ageFilter.value : 0"
+    (personSelected)="setCurrentPerson($event)">
 </demo-app-person-list>
 
 <button (click)="clearSelection()">Clear</button>

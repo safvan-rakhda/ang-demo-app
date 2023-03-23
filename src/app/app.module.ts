@@ -36,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FilterAgePipe } from './lifecycle/custompipe/filter-age.pipe';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DemohoverDirective,
     LogindemoComponent,
     ReactiveformComponent,
+    FilterAgePipe,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {
   Self,
   Inject,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { HeaderComponent } from '../../header/header.component';
 import { MY_TOKEN } from '../../injectiontoken/demo.token';
 import { Person } from '../Model/Types';
@@ -23,6 +24,7 @@ export class PersonComponent implements OnInit, AfterViewInit {
   selectedPerson: Person | undefined;
   @ViewChild(HeaderComponent)
   headerComp!: HeaderComponent;
+  ageFilter = new FormControl<number>(0);
 
   constructor(
     @Self() private personService: PersonService,
